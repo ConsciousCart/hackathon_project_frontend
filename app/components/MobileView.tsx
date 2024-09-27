@@ -84,7 +84,7 @@
 //           {/* USER PROFILE INFO */}
 //           <div className="text-white">
 //             <h2 className="text-2xl font-bold mb-4">Profile</h2>
-          
+
 //           <Image
 //             src={user.imageUrl}
 //             alt="User Profile"
@@ -96,20 +96,20 @@
 //             Name: <span>{user.fullName}</span>
 //           </p>
 //           <p>Email: <span>{user.emailAddresses[0].emailAddress}</span></p>
-    
+
 //           {/* MANAGE ACCOUNT AND SIGN OUT */}
 //           <div className="mt-6">
 //             <h3 className="text-xl font-semibold mb-2">Account Settings</h3>
-    
+
 //             {/* Clerk's Manage Account */}
 //             <div className="mb-4">
-//               <UserButton 
+//               <UserButton
 //                 signInUrl='/sign-in'
 //                 appearance={{
 //                   elements: {
 //                     userButtonPopoverActionButton: "bg-blue-500 text-white py-2 px-4 rounded mt-2",
 //                   },
-//                 }} 
+//                 }}
 //               />
 //             </div>
 //           </div>
@@ -168,23 +168,22 @@
 //       )}
 //       {/* FOOTER ALWAYS VISIBLE */}
 //       <MobileViewFooter onTabChange={setActiveTab} />
-      
+
 //     </div>
 //   );
 // };
 
 // export default InvoiceScanner;
 
-
-import { UserButton } from '@clerk/nextjs';
-import React, { useState, useRef } from 'react';
-import { Camera } from 'lucide-react';
-import UploadPDFButton from './UploadPDFButton';
-import MobileViewFooter from './MobileViewFooter';
-import SyncEmailButton from './SyncEmailButton';
-import Header from './Header';
-import { useUser } from '@clerk/nextjs';
-import Image from 'next/image';
+import { UserButton } from "@clerk/nextjs";
+import React, { useState, useRef } from "react";
+import { Camera } from "lucide-react";
+import UploadPDFButton from "./UploadPDFButton";
+import MobileViewFooter from "./MobileViewFooter";
+import SyncEmailButton from "./SyncEmailButton";
+import Header from "./Header";
+import { useUser } from "@clerk/nextjs";
+import Image from "next/image";
 
 interface InvoiceScannerProps {
   onCapture: (imageDataUrl: string) => void;
@@ -192,7 +191,9 @@ interface InvoiceScannerProps {
 
 const InvoiceScanner: React.FC<InvoiceScannerProps> = ({ onCapture }) => {
   const [isCameraActive, setIsCameraActive] = useState(false);
-  const [activeTab, setActiveTab] = useState<'Scan' | 'Report' | 'Analysis' | 'Profile'>('Scan');
+  const [activeTab, setActiveTab] = useState<
+    "Scan" | "Report" | "Analysis" | "Profile"
+  >("Scan");
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { user } = useUser();
@@ -200,7 +201,7 @@ const InvoiceScanner: React.FC<InvoiceScannerProps> = ({ onCapture }) => {
   const startCamera = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: 'environment' },
+        video: { facingMode: "environment" },
       });
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
@@ -209,7 +210,7 @@ const InvoiceScanner: React.FC<InvoiceScannerProps> = ({ onCapture }) => {
         };
       }
     } catch (err) {
-      console.error('Error accessing the camera:', err);
+      console.error("Error accessing the camera:", err);
       setIsCameraActive(false);
     }
   };
@@ -233,7 +234,7 @@ const InvoiceScanner: React.FC<InvoiceScannerProps> = ({ onCapture }) => {
 
   const captureImage = () => {
     if (videoRef.current && canvasRef.current) {
-      const context = canvasRef.current.getContext('2d');
+      const context = canvasRef.current.getContext("2d");
       if (context) {
         canvasRef.current.width = videoRef.current.videoWidth;
         canvasRef.current.height = videoRef.current.videoHeight;
@@ -244,7 +245,7 @@ const InvoiceScanner: React.FC<InvoiceScannerProps> = ({ onCapture }) => {
           canvasRef.current.width,
           canvasRef.current.height
         );
-        const imageDataUrl = canvasRef.current.toDataURL('image/jpeg');
+        const imageDataUrl = canvasRef.current.toDataURL("image/jpeg");
         onCapture(imageDataUrl); // Pass the image to the parent
       }
     }
@@ -252,12 +253,12 @@ const InvoiceScanner: React.FC<InvoiceScannerProps> = ({ onCapture }) => {
   };
 
   return (
-    <div className="flex bg-black flex-col items-center justify-between min-h-screen">
+    <div className="flex bg-black flex-col items-center justify-between h-screen sm:h-screen lg:h-auto overflow-hidden">
       {/* HEADER */}
       <Header className="text-white w-max relative" />
 
       {/* ACTIVE TAB CONTENT */}
-      {activeTab === 'Profile' && user ? (
+      {activeTab === "Profile" && user ? (
         <>
           {/* USER PROFILE INFO */}
           <div className="text-white flex flex-col items-center justify-center">
@@ -272,19 +273,22 @@ const InvoiceScanner: React.FC<InvoiceScannerProps> = ({ onCapture }) => {
             <p className="text-sm">
               Name: <span>{user.fullName}</span>
             </p>
-            <p className="text-sm">Email: <span>{user.emailAddresses[0].emailAddress}</span></p>
+            <p className="text-sm">
+              Email: <span>{user.emailAddresses[0].emailAddress}</span>
+            </p>
 
             {/* MANAGE ACCOUNT AND SIGN OUT */}
             <div className="mt-6">
               <h3 className="text-md font-semibold mb-2">Account Settings</h3>
               <div className="mb-4">
-                <UserButton 
-                  signInUrl='/sign-in'
+                <UserButton
+                  signInUrl="/sign-in"
                   appearance={{
                     elements: {
-                      userButtonPopoverActionButton: "bg-blue-500 text-white py-2 px-3 rounded",
+                      userButtonPopoverActionButton:
+                        "bg-blue-500 text-white py-2 px-3 rounded",
                     },
-                  }} 
+                  }}
                 />
               </div>
             </div>
@@ -317,11 +321,11 @@ const InvoiceScanner: React.FC<InvoiceScannerProps> = ({ onCapture }) => {
                 className="w-full py-3 bg-yellow-400 text-black font-bold rounded-md mb-4"
                 onClick={isCameraActive ? captureImage : toggleCamera}
               >
-                {isCameraActive ? 'Capture Invoice' : 'Scan Invoice'}
+                {isCameraActive ? "Capture Invoice" : "Scan Invoice"}
               </button>
               <canvas
                 ref={canvasRef}
-                style={{ display: 'none' }}
+                style={{ display: "none" }}
                 className="rounded-full"
               />
             </div>

@@ -18,7 +18,7 @@ function Page() {
 
   return (
     <div className=" flex flex-col items-center justify-center">
-      <main className="h-[800px] w-[360px] flex flex-col my-10 items-center justify-center space-y-8 py-10">
+      <main className="lg:h-[800px] w-[360px] flex flex-col lg:my-10 items-center justify-center space-y-8 lg:py-10">
         <InvoiceScanner onCapture={handleCapture} />
         {/* {capturedImage && (
           <div className="flex flex-col items-center">
