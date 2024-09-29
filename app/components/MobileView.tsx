@@ -26,38 +26,46 @@ const MobileView: React.FC = () => {
     // Add your logic here to process the captured image
   };
 
+  const renderActiveTabContent = () => {
+    switch (activeTab) {
+      case "Profile":
+        return <ProfileSection />;
+      case "Analysis":
+        return <AnalysisScreen />;
+      default:
+        return (
+          <>
+            {!healthProfileCompleted ? (
+              <div className="flex flex-col items-center justify-center px-4 py-0 h-2/3 lg:h-full w-full">
+                <HowHealthyAreYou onComplete={handleHealthProfileComplete} />
+              </div>
+            ) : (
+              <div className="flex my-auto lg:my-0 flex-col items-center justify-center p-4 w-full">
+                <InvoiceScanner onCapture={handleCapture} />
+
+                {/* DIVIDER */}
+                <div className="flex items-center justify-center my-6 w-full">
+                  <div className="border-t border-2 w-[120px] border-gray-900 flex-grow mr-2"></div>
+                  <span className="text-gray-400 text-sm">or</span>
+                  <div className="border-t border-2 w-[120px] border-gray-900 flex-grow ml-2"></div>
+                </div>
+
+                {/* UPLOAD PDF AND SYNC EMAIL BUTTONS */}
+                <div className="w-full">
+                  <UploadPDFButton />
+                  <SyncEmailButton />
+                </div>
+              </div>
+            )}
+          </>
+        );
+    }
+  };
+
   return (
     <div className="flex bg-black flex-col items-center justify-between w-screen lg:max-w-xs h-screen lg:h-full overflow-hidden lg:rounded-md">
       {/* ACTIVE TAB CONTENT */}
-      {activeTab === "Profile" ? (
-        <ProfileSection />
-      ) : (
-        <>
-          {!healthProfileCompleted ? (
-            <div className="flex flex-col items-center justify-center px-4 py-0 h-2/3 lg:h-full w-full">
-              <HowHealthyAreYou onComplete={handleHealthProfileComplete} />
-            </div>
-          ) : (
-            /* SCAN INVOICE COMPONENT */
-            <div className="flex my-auto lg:my-0 flex-col items-center justify-center p-4 w-full">
-              <InvoiceScanner onCapture={handleCapture} />
-
-              {/* DIVIDER */}
-              <div className="flex items-center justify-center my-6 w-full">
-                <div className="border-t border-2 w-[120px] border-gray-900 flex-grow mr-2"></div>
-                <span className="text-gray-400 text-sm">or</span>
-                <div className="border-t border-2 w-[120px] border-gray-900 flex-grow ml-2"></div>
-              </div>
-
-              {/* UPLOAD PDF AND SYNC EMAIL BUTTONS */}
-              <div className="w-full">
-                <UploadPDFButton />
-                <SyncEmailButton />
-              </div>
-            </div>
-          )}
-        </>
-      )}
+      {renderActiveTabContent()}
 
       {/* FOOTER */}
       {healthProfileCompleted && (
