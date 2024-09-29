@@ -226,7 +226,7 @@ const MobileView: React.FC = () => {
   };
 
   return (
-    <div className="flex bg-black flex-col items-center justify-between w-screen lg:max-w-xs h-screen lg:h-full overflow-hidden">
+    <div className="flex bg-black flex-col items-center justify-between w-screen lg:max-w-xs h-screen lg:h-full overflow-hidden lg:rounded-md">
       {/* ACTIVE TAB CONTENT */}
       {activeTab === "Profile" && user ? (
         <>
