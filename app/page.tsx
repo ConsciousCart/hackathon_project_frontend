@@ -17,8 +17,8 @@ function Page() {
   // };
 
   return (
-    <div className=" flex overflow-hidden flex-col items-center justify-center">
-      <main className="overflow-hidden lg:h-[800px] w-[360px] flex flex-col lg:my-10 items-center justify-center space-y-8 lg:py-10">
+    <div className=" flex overflow-hidden flex-col items-stretch justify-center">
+      <main className="overflow-hidden lg:h-[100vh] flex flex-col w-screen lg:my-10 items-center justify-center space-y-8 lg:py-10">
         <InvoiceScanner onCapture={handleCapture} />
         {/* {capturedImage && (
           <div className="flex flex-col items-center">
