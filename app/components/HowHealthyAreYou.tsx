@@ -32,10 +32,10 @@ const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
   };
 
   return (
-    <div className="bg-black text-white w-screen lg:w-[368px] p-4 flex flex-col h-[640px] lg:h-[560px]">
+    <div className="text-white overflow-hidden w-full p-4 flex flex-col h-full">
       <div className="h-full">
         <div className="flex items-center justify-between">
-          <TypographyP className="text-xl font-semibold">
+          <TypographyP className="text-3xl lg:text-xl font-semibold">
             Health Snapshot
           </TypographyP>
           <UserButton
@@ -61,7 +61,7 @@ const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
                   value ? "border-[#CCFF00]" : "border-gray-500"
                 }`}
               />
-              <Label htmlFor={key} className="capitalize">
+              <Label htmlFor={key} className="text-xl lg:text-base capitalize">
                 {key === "strictHealthGoals" ? "Strict health goals" : key}
               </Label>
             </div>
