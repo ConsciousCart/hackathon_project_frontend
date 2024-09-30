@@ -6,10 +6,11 @@ import SyncEmailButton from "./SyncEmailButton";
 import HowHealthyAreYou from "./HowHealthyAreYou";
 import InvoiceScanner from "./InvoiceScanner";
 import ProfileSection from "./ProfileScreen";
+import ListOfInvoices from "./ListOfInvoices";
 
 const MobileView: React.FC = () => {
   const [activeTab, setActiveTab] = useState<
-    "Scan" | "Report" | "Analysis" | "Profile"
+    "Scan" | "Invoices" | "Analysis" | "Profile"
   >("Scan");
   const [healthProfileCompleted, setHealthProfileCompleted] = useState(false);
 
@@ -32,6 +33,8 @@ const MobileView: React.FC = () => {
         return <ProfileSection />;
       case "Analysis":
         return <AnalysisScreen />;
+      case "Invoices":
+        return <ListOfInvoices />
       default:
         return (
           <>
