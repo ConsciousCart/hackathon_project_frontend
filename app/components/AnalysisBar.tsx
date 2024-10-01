@@ -10,7 +10,7 @@ const AnalysisBar = () => {
   }));
 
   return (
-    <div className="h-[400px] w-[300px] min-w-full">
+    <div className="h-[400px] w-[700px] min-w-full">
       <ResponsiveBar
         theme={chartTheme}
         data={data}
