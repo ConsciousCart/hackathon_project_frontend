@@ -2,7 +2,6 @@ import React from "react";
 import { TypographyH2 } from "@/components/ui/Typography/TypographyH2";
 import NutrientDensityAnalysisChart from "./NutrispectrumPieChart";
 import { productData } from "../exportProductsData";
-import styled from "styled-components";
 import {
   Table,
   TableBody,
@@ -10,18 +9,20 @@ import {
   TableHead,
   TableRow,
 } from "@/components/ui/table";
+import NutritionDataTable from "./NutritionDataTable";
 
 const InvoicesAnalysisScreen: React.FC = () => {
   return (
     <div>
       <TypographyH2 className="text-white">Invoice Analysis</TypographyH2>
-      <div className="mt-[20px]">
+      <div className="mt-[20px] pb-[16px]">
         <div className="">
           <NutrientDensityAnalysisChart products={productData} />
         </div>
 
         {/* Table */}
-        <Table className="text-white w-max mx-auto">
+        <NutritionDataTable />
+        {/* <Table className="text-white w-max mx-auto">
           <TableRow>
             <TableHead className="w-[100px]">Cost to nutrient ratio</TableHead>
             <TableHead className="text-left">Glycemic index</TableHead>
@@ -54,7 +55,7 @@ const InvoicesAnalysisScreen: React.FC = () => {
               <TableCell className="ml-auto">Three</TableCell>
             </TableRow>
           </TableBody>
-        </Table>
+        </Table> */}
       </div>
     </div>
   );
