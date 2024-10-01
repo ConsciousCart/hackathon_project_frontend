@@ -10,7 +10,7 @@ const InvoicesAnalysisScreen: React.FC = () => {
     <div>
       <TypographyH2 className="text-white">Invoice Analysis</TypographyH2>
       <div className="mt-[20px] pb-[16px]">
-        <div className="">
+        <div className="pb-[16px]">
           <NutrientDensityAnalysisChart products={productData} />
         </div>
 
