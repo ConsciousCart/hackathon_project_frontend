@@ -67,7 +67,7 @@ const AnalysisScreen = () => {
       {invoiceSummary?.purchasing_trend_suggestions && (
         <div>
           <h3 className="text-xl">Personalized Feedback</h3>
-          <div className="bg-[rgb(30,30,30)] rounded p-6 flex flex-col space-y-4">
+          <div className="bg-[rgb(30,30,30)] rounded py-1 px-2 flex flex-col space-y-4">
             <FeedbackParas
               paragraphs={invoiceSummary.purchasing_trend_suggestions}
             />

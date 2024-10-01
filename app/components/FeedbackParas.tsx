@@ -30,7 +30,7 @@ const FeedbackParas: React.FC<FeedbackParasProps> = ({
         <>
           <p>{truncateParagraph(paragraphs[0], charLimit)}</p>
           <button
-            className="text-blue-400 hover:text-blue-300 transition-colors"
+            className="text-blue-400 hover:text-blue-300 transition-colors ml-auto"
             onClick={() => setShowAll(true)}
           >
             Read More
@@ -43,7 +43,7 @@ const FeedbackParas: React.FC<FeedbackParasProps> = ({
           ))}
           {shouldTruncate && (
             <button
-              className="text-blue-400 hover:text-blue-300 transition-colors"
+              className="text-blue-400 hover:text-blue-300 transition-colors ml-auto"
               onClick={() => setShowAll(false)}
             >
               Show Less
