@@ -7,14 +7,16 @@ import InvoiceScanner from "./InvoiceScanner";
 import ProfileSection from "./ProfileScreen";
 import ListOfInvoices from "./ListOfInvoices";
 import InvoicesAnalysisScreen from "./InvoicesAnalysisScreen";
-
+import MobileMenu from "./MobileMenu";
 interface Invoice {
   dateUploaded: string;
   invoice: string; // Filename, could be a PDF or an image
 }
 
 const MobileView: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"Scan" | "Invoices" | "Invoice analysis" | "Analysis" | "Profile">("Scan");
+  const [activeTab, setActiveTab] = useState<
+    "Scan" | "Invoices" | "Invoice analysis" | "Analysis" | "Profile"
+  >("Scan");
   const [uploadMessage, setUploadMessage] = useState<string | null>(null);
   const [invoices, setInvoices] = useState<Invoice[]>([]);
 
@@ -41,7 +43,7 @@ const MobileView: React.FC = () => {
         return <ListOfInvoices invoices={invoices} />; // Render ListOfInvoices with the invoices array
       case "Invoice analysis":
         return <InvoicesAnalysisScreen />;
-        default:
+      default:
         return (
           <div className="flex my-auto lg:my-0 flex-col items-center justify-center p-4 w-full">
             <InvoiceScanner
@@ -75,9 +77,10 @@ const MobileView: React.FC = () => {
   };
 
   return (
-    <div className="flex bg-black flex-col items-center justify-between w-screen lg:max-w-xs h-screen lg:h-full overflow-hidden lg:rounded-md">
-      {renderActiveTabContent()}
-      <MobileViewFooter onTabChange={setActiveTab} />
+    <div className="flex bg-black flex-col items-center justify-between w-screen lg:max-w-xs h-screen lg:h-full lg:rounded-md">
+      <div className="overflow-auto">{renderActiveTabContent()}</div>
+      {/* <MobileViewFooter onTabChange={setActiveTab} /> */}
+      <MobileMenu initialActiveTab={activeTab} onTabChange={setActiveTab} />
     </div>
   );
 };

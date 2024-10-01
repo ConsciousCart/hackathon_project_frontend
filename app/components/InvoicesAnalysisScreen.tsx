@@ -1,45 +1,70 @@
-// import { TypographyH2 } from "@/components/ui/Typography/TypographyH2";
-
-// const InvoicesAnalysisScreen = () => {
-//   return (
-//     <div className="text-white p-6">
-//       <TypographyH2 className="tracking-wide border-none pb-2">
-//         Invoice analysis
-//       </TypographyH2>
-
-//       {/* Content area */}
-//       <div className="space-y-4">
-//       {/* Pie chart */}
-//       {/* Table */}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default InvoicesAnalysisScreen;
-
+import React from 'react';
 import { TypographyH2 } from "@/components/ui/Typography/TypographyH2";
-import NutrientDensityAnalysisChart from "./NutrispectrumPieChart";
+import NutrientDensityAnalysisChart from './NutrispectrumPieChart';
 import { productData } from "../exportProductsData";
+import styled from 'styled-components';
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow,
+  } from "@/components/ui/table";
 
-const InvoicesAnalysisScreen = () => {
+const Container = styled.div`
+  padding: 20px;
+`;
+
+const ContentArea = styled.div`
+  margin-top: 20px;
+`;
+
+const InvoicesAnalysisScreen: React.FC = () => {
   return (
-    <div className="text-white p-6">
-      <TypographyH2 className="tracking-wide border-none pb-2">
-        Invoice analysis
-      </TypographyH2>
+    <Container>
+      <TypographyH2 className='text-white'>Invoice Analysis</TypographyH2>
+      <ContentArea>
+        <NutrientDensityAnalysisChart products={productData} />
 
-      {/* Content area */}
-      <div className="space-y-4">
-        {/* Pie chart */}
-        <div className="bg-gray-800 p-4 rounded-lg">
-          <h3 className="text-xl font-semibold mb-4">Nutrient Density Distribution</h3>
-          <NutrientDensityAnalysisChart products={productData} />
-        </div>
+
         {/* Table */}
-        {/* You can add a table component here if needed */}
-      </div>
-    </div>
+        <Table className="text-white w-max mx-auto">
+
+            <TableRow>
+              <TableHead className="w-[100px]">Cost to nutrient ratio</TableHead>
+              <TableHead className="text-left">Glycemic index</TableHead>
+              <TableHead className="text-left">Carbon footprint</TableHead>
+            </TableRow>
+          <TableBody>
+            <TableRow>
+              <TableCell>One</TableCell>
+              <TableCell className="ml-auto">Two</TableCell>
+              <TableCell className="ml-auto">Three</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>One</TableCell>
+              <TableCell className="ml-auto">Two</TableCell>
+              <TableCell className="ml-auto">Three</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>One</TableCell>
+              <TableCell className="ml-auto">Two</TableCell>
+              <TableCell className="ml-auto">Three</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>One</TableCell>
+              <TableCell className="ml-auto">Two</TableCell>
+              <TableCell className="ml-auto">Three</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>One</TableCell>
+              <TableCell className="ml-auto">Two</TableCell>
+              <TableCell className="ml-auto">Three</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </ContentArea>
+    </Container>
   );
 };
 
