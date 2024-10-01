@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-type Tab = 'Scan' | 'Invoices' | 'Analysis' | 'Profile';
+type Tab = 'Scan' | 'Invoices' | 'Invoice analysis' | 'Analysis' | 'Profile';
 
 interface MobileViewFooterProps {
   className?: string;
@@ -14,7 +14,7 @@ const MobileViewFooter: React.FC<MobileViewFooterProps> = ({
   onTabChange,
 }) => {
   const [activeTab, setActiveTab] = useState<Tab>(initialActiveTab);
-  const tabs: Tab[] = ['Scan', 'Invoices', 'Analysis', 'Profile'];
+  const tabs: Tab[] = ['Scan', 'Invoices', 'Invoice analysis', 'Analysis', 'Profile'];
 
   const handleTabClick = (tab: Tab) => {
     setActiveTab(tab);

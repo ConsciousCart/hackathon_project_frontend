@@ -6,6 +6,7 @@ import SyncEmailButton from "./SyncEmailButton";
 import InvoiceScanner from "./InvoiceScanner";
 import ProfileSection from "./ProfileScreen";
 import ListOfInvoices from "./ListOfInvoices";
+import InvoicesAnalysisScreen from "./InvoicesAnalysisScreen";
 
 interface Invoice {
   dateUploaded: string;
@@ -13,10 +14,9 @@ interface Invoice {
 }
 
 const MobileView: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"Scan" | "Invoices" | "Analysis" | "Profile">("Scan");
+  const [activeTab, setActiveTab] = useState<"Scan" | "Invoices" | "Invoice analysis" | "Analysis" | "Profile">("Scan");
   const [uploadMessage, setUploadMessage] = useState<string | null>(null);
   const [invoices, setInvoices] = useState<Invoice[]>([]);
-  const [uploadSuccess, setUploadSuccess] = useState(false);
 
   const handleUploadSuccess = (invoiceName: string) => {
     const newInvoice: Invoice = {
@@ -25,12 +25,10 @@ const MobileView: React.FC = () => {
     };
     setInvoices((prevInvoices) => [...prevInvoices, newInvoice]);
     setUploadMessage("File uploaded successfully!");
-    setUploadSuccess(true);
   };
 
   const handleUploadError = (error: string) => {
     setUploadMessage(`Failed to upload file: ${error}`);
-    setUploadSuccess(false);
   };
 
   const renderActiveTabContent = () => {
@@ -41,7 +39,9 @@ const MobileView: React.FC = () => {
         return <AnalysisScreen />;
       case "Invoices":
         return <ListOfInvoices invoices={invoices} />; // Render ListOfInvoices with the invoices array
-      default:
+      case "Invoice analysis":
+        return <InvoicesAnalysisScreen />;
+        default:
         return (
           <div className="flex my-auto lg:my-0 flex-col items-center justify-center p-4 w-full">
             <InvoiceScanner
