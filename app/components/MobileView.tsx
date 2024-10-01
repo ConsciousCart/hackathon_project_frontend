@@ -805,7 +805,7 @@ import AnalysisScreen from "./AnalysisScreen";
 import UploadPDFButton from "./UploadPDFButton";
 import MobileViewFooter from "./MobileViewFooter";
 import SyncEmailButton from "./SyncEmailButton";
-import HowHealthyAreYou from "./HowHealthyAreYou";
+
 import InvoiceScanner from "./InvoiceScanner";
 import ProfileSection from "./ProfileScreen";
 import ListOfInvoices from "./ListOfInvoices";
@@ -817,18 +817,10 @@ interface Invoice {
 
 const MobileView: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"Scan" | "Invoices" | "Analysis" | "Profile">("Scan");
-  const [healthProfileCompleted, setHealthProfileCompleted] = useState(false);
   const [uploadMessage, setUploadMessage] = useState<string | null>(null);
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [uploadSuccess, setUploadSuccess] = useState(false);
 
-  // Assuming you have a method to fetch the user's email
-
-  const handleHealthProfileComplete = (profile: { [key: string]: boolean }) => {
-    if (Object.values(profile).some((value) => value)) {
-      setHealthProfileCompleted(true);
-    }
-  };
 
   const handleUploadSuccess = (invoiceName: string) => {
     const newInvoice: Invoice = {
@@ -856,11 +848,7 @@ const MobileView: React.FC = () => {
       default:
         return (
           <>
-            {!healthProfileCompleted ? (
-              <div className="flex flex-col items-center justify-center px-4 py-0 h-2/3 lg:h-full w-full">
-                <HowHealthyAreYou onComplete={handleHealthProfileComplete} />
-              </div>
-            ) : (
+            (
               <div className="flex my-auto lg:my-0 flex-col items-center justify-center p-4 w-full">
                 <InvoiceScanner 
                   onUploadSuccess={handleUploadSuccess}
@@ -883,7 +871,7 @@ const MobileView: React.FC = () => {
                   <SyncEmailButton />
                 </div>
               </div>
-            )}
+            )
           </>
         );
     }
@@ -892,9 +880,9 @@ const MobileView: React.FC = () => {
   return (
     <div className="flex bg-black flex-col items-center justify-between w-screen lg:max-w-xs h-screen lg:h-full overflow-hidden lg:rounded-md">
       {renderActiveTabContent()}
-      {healthProfileCompleted && (
+       (
         <MobileViewFooter onTabChange={setActiveTab} />
-      )}
+      )
     </div>
   );
 };
