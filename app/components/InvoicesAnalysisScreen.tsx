@@ -2,13 +2,7 @@ import React from "react";
 import { TypographyH2 } from "@/components/ui/Typography/TypographyH2";
 import NutrientDensityAnalysisChart from "./NutrispectrumPieChart";
 import { productData } from "../exportProductsData";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from "@/components/ui/table";
+
 import NutritionDataTable from "./NutritionDataTable";
 
 const InvoicesAnalysisScreen: React.FC = () => {
