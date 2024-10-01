@@ -1,17 +1,8 @@
 import { ResponsivePie } from "@nivo/pie";
 import { ProductType } from "../types";
 
-// Define types for the product and the categories
-type NutrientDensityScore = {
-  value: number;
-  category: "Very Low" | "Low" | "Medium" | "High";
-};
 type Props = {
   products: ProductType[];
-};
-
-type Product = {
-  nutrient_density_score: NutrientDensityScore;
 };
 
 type Categories = {
@@ -22,7 +13,7 @@ type Categories = {
 };
 
 // Function to categorize products
-const categorizeProducts = (products: Product[]): Categories => {
+const categorizeProducts = (products: ProductType[]): Categories => {
   const categories: Categories = {
     "Very Low": 0,
     Low: 0,
@@ -31,7 +22,8 @@ const categorizeProducts = (products: Product[]): Categories => {
   };
 
   products.forEach((product) => {
-    categories[product.nutrient_density_score.category] += 1;
+    const category = product.nutrient_density_score.category as keyof Categories;
+    categories[category] += 1;
   });
 
   return categories;
