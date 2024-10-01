@@ -11,14 +11,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-const Container = styled.div`
-  padding: 20px;
-`;
-
-const ContentArea = styled.div`
-  margin-top: 20px;
-`;
-
 const InvoicesAnalysisScreen: React.FC = () => {
   return (
     <div>

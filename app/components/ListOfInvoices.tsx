@@ -1,5 +1,12 @@
 import React from "react";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { FileText, Image } from "lucide-react";
 
 interface Invoice {
@@ -14,14 +21,14 @@ interface ListOfInvoicesProps {
 const ListOfInvoices: React.FC<ListOfInvoicesProps> = ({ invoices }) => {
   if (invoices.length === 0) {
     return (
-      <div className="p-4 text-center text-gray-500">
+      <div className=" text-gray-300 h-screen flex items-center justify-center">
         <p>No invoices uploaded yet.</p>
       </div>
     );
   }
 
   return (
-    <div className="p-4">
+    <div className="">
       <h2 className="text-lg font-bold mb-4">Your Invoices</h2>
       <Table>
         <TableHeader>
@@ -33,11 +40,17 @@ const ListOfInvoices: React.FC<ListOfInvoicesProps> = ({ invoices }) => {
         </TableHeader>
         <TableBody>
           {invoices.map((invoice, index) => {
-            const isImage = invoice.invoice.endsWith(".jpg") || invoice.invoice.endsWith(".png");
+            const isImage =
+              invoice.invoice.endsWith(".jpg") ||
+              invoice.invoice.endsWith(".png");
             return (
               <TableRow key={index}>
                 <TableCell>
-                  {isImage ? <Image className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
+                  {isImage ? (
+                    <Image className="w-4 h-4" />
+                  ) : (
+                    <FileText className="w-4 h-4" />
+                  )}
                   {isImage ? "Image" : "PDF"}
                 </TableCell>
                 <TableCell>{invoice.dateUploaded}</TableCell>
