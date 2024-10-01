@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AnalysisScreen from "./AnalysisScreen";
 import UploadPDFButton from "./UploadPDFButton";
-import MobileViewFooter from "./MobileViewFooter";
 import SyncEmailButton from "./SyncEmailButton";
 import InvoiceScanner from "./InvoiceScanner";
 import ProfileSection from "./ProfileScreen";
@@ -77,8 +76,8 @@ const MobileView: React.FC = () => {
   };
 
   return (
-    <div className="flex bg-black flex-col items-center justify-between w-screen lg:max-w-xs h-screen lg:h-full lg:rounded-md">
-      <div className="overflow-auto">{renderActiveTabContent()}</div>
+    <div className="flex bg-black flex-col px-[16px] w-screen lg:max-w-xs h-screen lg:h-full lg:rounded-md">
+      <div className="overflow-auto grow">{renderActiveTabContent()}</div>
       {/* <MobileViewFooter onTabChange={setActiveTab} /> */}
       <MobileMenu initialActiveTab={activeTab} onTabChange={setActiveTab} />
     </div>

@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 import { TypographyH2 } from "@/components/ui/Typography/TypographyH2";
-import NutrientDensityAnalysisChart from './NutrispectrumPieChart';
+import NutrientDensityAnalysisChart from "./NutrispectrumPieChart";
 import { productData } from "../exportProductsData";
-import styled from 'styled-components';
+import styled from "styled-components";
 import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow,
-  } from "@/components/ui/table";
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@/components/ui/table";
 
 const Container = styled.div`
   padding: 20px;
@@ -21,20 +21,20 @@ const ContentArea = styled.div`
 
 const InvoicesAnalysisScreen: React.FC = () => {
   return (
-    <Container>
-      <TypographyH2 className='text-white'>Invoice Analysis</TypographyH2>
-      <ContentArea>
-        <NutrientDensityAnalysisChart products={productData} />
-
+    <div>
+      <TypographyH2 className="text-white">Invoice Analysis</TypographyH2>
+      <div className="mt-[20px]">
+        <div className="">
+          <NutrientDensityAnalysisChart products={productData} />
+        </div>
 
         {/* Table */}
         <Table className="text-white w-max mx-auto">
-
-            <TableRow>
-              <TableHead className="w-[100px]">Cost to nutrient ratio</TableHead>
-              <TableHead className="text-left">Glycemic index</TableHead>
-              <TableHead className="text-left">Carbon footprint</TableHead>
-            </TableRow>
+          <TableRow>
+            <TableHead className="w-[100px]">Cost to nutrient ratio</TableHead>
+            <TableHead className="text-left">Glycemic index</TableHead>
+            <TableHead className="text-left">Carbon footprint</TableHead>
+          </TableRow>
           <TableBody>
             <TableRow>
               <TableCell>One</TableCell>
@@ -63,8 +63,8 @@ const InvoicesAnalysisScreen: React.FC = () => {
             </TableRow>
           </TableBody>
         </Table>
-      </ContentArea>
-    </Container>
+      </div>
+    </div>
   );
 };
 
