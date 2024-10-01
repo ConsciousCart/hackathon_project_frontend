@@ -61,7 +61,7 @@ const AnalysisScreen = () => {
   return (
     <div className="text-gray-100 p-[16px]">
       <h3 className="text-xl">Monthly Nutritional Performance Breakdown</h3>
-      <div className="pb-[16px]">
+      <div className="pb-[16px] bg-pink-200 overflow-x-auto">
         <AnalysisBar />
       </div>
       {invoiceSummary?.purchasing_trend_suggestions && (

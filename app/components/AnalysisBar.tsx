@@ -10,7 +10,7 @@ const AnalysisBar = () => {
   }));
 
   return (
-    <div className="h-[400px] w-[300px]">
+    <div className="h-[400px] w-[300px] min-w-full">
       <ResponsiveBar
         theme={chartTheme}
         data={data}
@@ -89,17 +89,17 @@ const AnalysisBar = () => {
         legends={[
           {
             dataFrom: "keys",
-            anchor: "bottom-right",
+            anchor: "top-right",
             direction: "column",
             justify: false,
             translateX: 110,
             translateY: 0,
-            itemsSpacing: 2,
+            itemsSpacing: 1,
             itemWidth: 100,
             itemHeight: 20,
             itemDirection: "left-to-right",
             itemOpacity: 0.85,
-            symbolSize: 20,
+            symbolSize: 10,
             effects: [
               {
                 on: "hover",
