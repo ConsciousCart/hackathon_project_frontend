@@ -10,17 +10,17 @@ interface HowHealthyAreYouProps {
 
 const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
   const [healthProfile, setHealthProfile] = useState({
-    diabetic: false,
-    strictHealthGoals: false,
-    normal: false,
+    diabetic_diet: false,
+    Weight_loss_diet: false,
+    Conscious_and_Conscientious_Consumer: false,
   });
 
   const handleCheckboxChange = (key: keyof typeof healthProfile) => {
     setHealthProfile(() => {
       const newProfile: typeof healthProfile = {
-        diabetic: false,
-        strictHealthGoals: false,
-        normal: false,
+        diabetic_diet: false,
+        Weight_loss_diet: false,
+        Conscious_and_Conscientious_Consumer: false,
         [key]: true,
       };
       return newProfile;
@@ -29,6 +29,10 @@ const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
 
   const handleSave = () => {
     onComplete(healthProfile);
+  };
+
+  const formatLabel = (key: string) => {
+    return key.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
   };
 
   return (
@@ -61,8 +65,8 @@ const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
                   value ? "border-[#CCFF00]" : "border-gray-500"
                 }`}
               />
-              <Label htmlFor={key} className="text-xl lg:text-base capitalize">
-                {key === "strictHealthGoals" ? "Strict health goals" : key}
+              <Label htmlFor={key} className="text-xl lg:text-base">
+                {formatLabel(key)}
               </Label>
             </div>
           ))}
