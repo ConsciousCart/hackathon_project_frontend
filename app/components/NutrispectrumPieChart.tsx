@@ -49,7 +49,7 @@ const categoryColors = {
   "Indulgence zone": "#FF6B6B",
   "Mindful munchies": "#4ECDC4",
   "Balanced boosters": "#E7FC00",
-  "Nutrient powerhouse": "#9B59B6"
+  "Nutrient powerhouse": "#9B59B6",
 };
 
 const getPieChartData = (categories: Record<string, number>): PieData[] => {
@@ -57,7 +57,7 @@ const getPieChartData = (categories: Record<string, number>): PieData[] => {
     id: category,
     label: category,
     value: count,
-    color: categoryColors[category as keyof typeof categoryColors]
+    color: categoryColors[category as keyof typeof categoryColors],
   }));
 };
 
@@ -107,11 +107,11 @@ const NutrientDensityAnalysisChart: React.FC<Props> = ({ products }) => {
                   },
                 },
               ],
-              data: pieChartData.map(d => ({
+              data: pieChartData.map((d) => ({
                 id: d.id,
                 label: `${d.label} (${d.value})`,
-                color: d.color
-              }))
+                color: d.color,
+              })),
             },
           ]}
         />

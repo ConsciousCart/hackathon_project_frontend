@@ -46,7 +46,7 @@ const getCategory = (obj: NestedObject | undefined, path: string[]): string => {
 
 export default function NutritionDataTable() {
   return (
-    <div className="rounded-md border mt-4">
+    <div className="rounded-md bg-[rgb(30,30,30)] border mt-4">
       <Table>
         <TableHeader>
           <TableRow>

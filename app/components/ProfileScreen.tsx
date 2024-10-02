@@ -10,8 +10,10 @@ const ProfileScreen: React.FC = () => {
   if (!user) return null;
 
   return (
-    <div className="lg:h-full text-white flex flex-col items-center justify-center my-auto">
-      <TypographyH2 className="border-none text-xl font-bold mb-2">Profile</TypographyH2>
+    <div className="lg:h-full bg-[rgb(30,30,30)] p-4 text-white flex flex-col items-center justify-center my-auto">
+      <TypographyH2 className="border-none text-xl font-bold mb-2">
+        Profile
+      </TypographyH2>
       <Image
         src={user.imageUrl}
         alt="User Profile"
@@ -19,26 +21,30 @@ const ProfileScreen: React.FC = () => {
         width={96}
         height={96}
       />
-      <TypographyP>
-        Name: <span>{user.fullName}</span>
-      </TypographyP>
-      <TypographyP>
-        Email: <span>{user.emailAddresses[0].emailAddress}</span>
-      </TypographyP>
+      <div>
+        <TypographyP>
+          Name: <span>{user.fullName}</span>
+        </TypographyP>
+        <TypographyP>
+          Email: <span>{user.emailAddresses[0].emailAddress}</span>
+        </TypographyP>
 
-      {/* MANAGE ACCOUNT AND SIGN OUT */}
-      <div className="mt-6 flex space-x-3 mr-auto">
-        <TypographyP className="">Account Settings</TypographyP>
-        <div className="text-center">
-          <UserButton
-            signInUrl="/sign-in"
-            appearance={{
-              elements: {
-                userButtonPopoverActionButton:
-                  "bg-blue-500 text-white py-2 px-3 rounded",
-              },
-            }}
-          />
+        {/* MANAGE ACCOUNT AND SIGN OUT */}
+        <div className="mt-6 flex space-x-3 mr-auto">
+          <TypographyP className="">Account Settings</TypographyP>
+          <div className="text-center">
+            <UserButton
+  signInUrl="/sign-in"
+  
+  appearance={{
+    elements: {
+      userButtonPopoverCard: "text-black border border-gray-700 centered-popup",
+      // ... other appearance properties
+      userButtonPopoverFooter: "hidden"
+    }
+  }}
+/>
+          </div>
         </div>
       </div>
     </div>
