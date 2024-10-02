@@ -33,7 +33,7 @@ const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
 
   return (
     <div className="bg-black text-white overflow-hidden w-full p-4 flex flex-col h-full">
-      <div className="h-full">
+      <div className="h-1/2">
         <div className="flex items-center justify-between">
           <TypographyP className="text-3xl lg:text-xl font-semibold">
             Health Snapshot
