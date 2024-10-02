@@ -32,7 +32,7 @@ const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
   };
 
   const formatLabel = (key: string) => {
-    return key.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+    return key.replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase());
   };
 
   return (
@@ -40,15 +40,16 @@ const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
       <div className="h-1/2">
         <div className="flex items-center justify-between">
           <TypographyP className="text-3xl lg:text-xl font-semibold">
-          Health Preferences
+            Health Preferences
           </TypographyP>
           <UserButton
             signInUrl="/sign-in"
             appearance={{
               elements: {
-                userButtonPopoverCard: "text-black border border-gray-700 centered-popup",
-                userButtonPopoverFooter: "hidden"
-              }
+                userButtonPopoverCard:
+                  "text-black border border-gray-700 centered-popup",
+                userButtonPopoverFooter: "hidden",
+              },
             }}
           />
         </div>
@@ -74,7 +75,7 @@ const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
       </div>
 
       <button
-        className="w-full bg-yellow-400 py-3 mb-3 text-black font-bold rounded-md"
+        className="w-full bg-[#E7FC00] py-3 mb-3 text-black font-bold rounded-md"
         onClick={handleSave}
       >
         Save
