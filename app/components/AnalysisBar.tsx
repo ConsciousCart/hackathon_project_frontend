@@ -43,7 +43,8 @@ const AnalysisBar = () => {
           tickRotation: 0,
           legend: "Month",
           legendPosition: "middle",
-          legendOffset: 32,
+          legendOffset: 30,
+          
         }}
         axisLeft={{
           tickSize: 5,
@@ -51,7 +52,8 @@ const AnalysisBar = () => {
           tickRotation: 0,
           legend: "Count",
           legendPosition: "middle",
-          legendOffset: -40,
+          legendOffset: -30,
+          
         }}
         labelSkipWidth={12}
         labelSkipHeight={12}
