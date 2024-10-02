@@ -10,17 +10,17 @@ interface HowHealthyAreYouProps {
 
 const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
   const [healthProfile, setHealthProfile] = useState({
-    diabetic_diet: false,
-    Weight_loss_diet: false,
-    Conscious_and_Conscientious_Consumer: false,
+    diabetic_management: false,
+    Weight_loss: false,
+    Conscious_Consumption: false,
   });
 
   const handleCheckboxChange = (key: keyof typeof healthProfile) => {
     setHealthProfile(() => {
       const newProfile: typeof healthProfile = {
-        diabetic_diet: false,
-        Weight_loss_diet: false,
-        Conscious_and_Conscientious_Consumer: false,
+        diabetic_management: false,
+        Weight_loss: false,
+        Conscious_Consumption: false,
         [key]: true,
       };
       return newProfile;
@@ -40,7 +40,7 @@ const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
       <div className="h-1/2">
         <div className="flex items-center justify-between">
           <TypographyP className="text-3xl lg:text-xl font-semibold">
-            Health Preferences
+            What&apos;s your primary health goal?
           </TypographyP>
           <UserButton
             signInUrl="/sign-in"
