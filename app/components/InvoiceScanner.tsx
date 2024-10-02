@@ -133,7 +133,7 @@ const InvoiceScanner: React.FC<InvoiceScannerProps> = ({
         )}
       </div>
       <button
-        className="w-full py-3 bg-yellow-400 text-black font-bold rounded-md mb-4 disabled:bg-gray-400 disabled:cursor-not-allowed"
+        className="w-full py-3 bg-[#E7FC00] text-black font-bold rounded-md mb-4 disabled:bg-gray-400 disabled:cursor-not-allowed"
         onClick={
           isCameraActive ? captureAndUploadImage : () => setIsCameraActive(true)
         }
@@ -149,7 +149,7 @@ const InvoiceScanner: React.FC<InvoiceScannerProps> = ({
 
       {uploadSuccess && (
         <div className="mt-4 text-green-600 font-bold text-center">
-          Uploaded successfully!
+          Image uploaded successfully!
         </div>
       )}
     </div>
