@@ -42,9 +42,9 @@ const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
             signInUrl="/sign-in"
             appearance={{
               elements: {
-                userButtonPopoverActionButton:
-                  "bg-blue-500 text-white py-2 px-3 rounded",
-              },
+                userButtonPopoverCard: "text-black border border-gray-700 centered-popup",
+                userButtonPopoverFooter: "hidden"
+              }
             }}
           />
         </div>
