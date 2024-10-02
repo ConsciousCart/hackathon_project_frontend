@@ -2,6 +2,7 @@ export const chartTheme = {
   background: "#1e1e1e",
   text: {
     fontSize: 11,
+    fontFamily: 'Arial, sans-serif',
     fill: "#e0e0e0",
     outlineWidth: 0,
     outlineColor: "transparent",
@@ -15,7 +16,7 @@ export const chartTheme = {
     },
     legend: {
       text: {
-        fontSize: 12,
+        fontSize: 24,
         fill: "#e0e0e0",
         outlineWidth: 0,
         outlineColor: "transparent",
