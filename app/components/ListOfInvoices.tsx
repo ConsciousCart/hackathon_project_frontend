@@ -21,14 +21,14 @@ interface ListOfInvoicesProps {
 const ListOfInvoices: React.FC<ListOfInvoicesProps> = ({ invoices }) => {
   if (invoices.length === 0) {
     return (
-      <div className=" text-gray-300 h-screen flex items-center justify-center">
+      <div className="text-white h-screen flex items-center justify-center">
         <p>No invoices uploaded yet.</p>
       </div>
     );
   }
 
   return (
-    <div className="">
+    <div className="text-white">
       <h2 className="text-lg font-bold mb-4">Your Invoices</h2>
       <Table>
         <TableHeader>
@@ -40,18 +40,22 @@ const ListOfInvoices: React.FC<ListOfInvoicesProps> = ({ invoices }) => {
         </TableHeader>
         <TableBody>
           {invoices.map((invoice, index) => {
-            const isImage =
-              invoice.invoice.endsWith(".jpg") ||
-              invoice.invoice.endsWith(".png");
+            const isImage = invoice.invoice.toLowerCase().endsWith(".jpg") || 
+                            invoice.invoice.toLowerCase().endsWith(".png") ||
+                            invoice.invoice.toLowerCase().endsWith(".jpeg");
+            const isPDF = invoice.invoice.toLowerCase().endsWith(".pdf");
+            
             return (
               <TableRow key={index}>
                 <TableCell>
                   {isImage ? (
                     <Image className="w-4 h-4" />
+                  ) : isPDF ? (
+                    <FileText className="w-4 h-4" />
                   ) : (
                     <FileText className="w-4 h-4" />
                   )}
-                  {isImage ? "Image" : "PDF"}
+                  {isImage ? "Image" : isPDF ? "PDF" : "Unknown"}
                 </TableCell>
                 <TableCell>{invoice.dateUploaded}</TableCell>
                 <TableCell>{invoice.invoice}</TableCell>
