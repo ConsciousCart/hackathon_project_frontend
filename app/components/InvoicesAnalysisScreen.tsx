@@ -16,40 +16,6 @@ const InvoicesAnalysisScreen: React.FC = () => {
 
         {/* Table */}
         <NutritionDataTable />
-        {/* <Table className="text-white w-max mx-auto">
-          <TableRow>
-            <TableHead className="w-[100px]">Cost to nutrient ratio</TableHead>
-            <TableHead className="text-left">Glycemic index</TableHead>
-            <TableHead className="text-left">Carbon footprint</TableHead>
-          </TableRow>
-          <TableBody>
-            <TableRow>
-              <TableCell>One</TableCell>
-              <TableCell className="ml-auto">Two</TableCell>
-              <TableCell className="ml-auto">Three</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>One</TableCell>
-              <TableCell className="ml-auto">Two</TableCell>
-              <TableCell className="ml-auto">Three</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>One</TableCell>
-              <TableCell className="ml-auto">Two</TableCell>
-              <TableCell className="ml-auto">Three</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>One</TableCell>
-              <TableCell className="ml-auto">Two</TableCell>
-              <TableCell className="ml-auto">Three</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>One</TableCell>
-              <TableCell className="ml-auto">Two</TableCell>
-              <TableCell className="ml-auto">Three</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table> */}
       </div>
     </div>
   );

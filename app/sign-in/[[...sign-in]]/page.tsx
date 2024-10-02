@@ -22,6 +22,7 @@ export default function Page() {
             signUpUrl="/sign-up"
             appearance={{
               elements: {
+                footerAction: "hidden",
                 cardBox: "h-full",
                 card: "h-full flex flex-col",
                 headerTitle: "text-2xl font-bold mb-4",

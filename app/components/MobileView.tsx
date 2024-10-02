@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AnalysisScreen from "./AnalysisScreen";
 import UploadPDFButton from "./UploadPDFButton";
 import SyncEmailButton from "./SyncEmailButton";
@@ -7,6 +7,7 @@ import ProfileSection from "./ProfileScreen";
 import ListOfInvoices from "./ListOfInvoices";
 import InvoicesAnalysisScreen from "./InvoicesAnalysisScreen";
 import MobileMenu from "./MobileMenu";
+
 interface Invoice {
   dateUploaded: string;
   invoice: string; // Filename, could be a PDF or an image
@@ -19,10 +20,23 @@ const MobileView: React.FC = () => {
   const [uploadMessage, setUploadMessage] = useState<string | null>(null);
   const [invoices, setInvoices] = useState<Invoice[]>([]);
 
+  useEffect(() => {
+    // Load invoices from localStorage on component mount
+    const storedInvoices = localStorage.getItem('invoices');
+    if (storedInvoices) {
+      setInvoices(JSON.parse(storedInvoices));
+    }
+  }, []);
+
+  useEffect(() => {
+    // Save invoices to localStorage whenever it changes
+    localStorage.setItem('invoices', JSON.stringify(invoices));
+  }, [invoices]);
+
   const handleUploadSuccess = (invoiceName: string) => {
     const newInvoice: Invoice = {
       dateUploaded: new Date().toLocaleDateString(),
-      invoice: invoiceName, // This will capture both PDF and image filenames
+      invoice: invoiceName,
     };
     setInvoices((prevInvoices) => [...prevInvoices, newInvoice]);
     setUploadMessage("File uploaded successfully!");
@@ -39,7 +53,7 @@ const MobileView: React.FC = () => {
       case "Analysis":
         return <AnalysisScreen />;
       case "Invoices":
-        return <ListOfInvoices invoices={invoices} />; // Render ListOfInvoices with the invoices array
+        return <ListOfInvoices invoices={invoices} />;
       case "Invoice analysis":
         return <InvoicesAnalysisScreen />;
       default:
@@ -67,7 +81,10 @@ const MobileView: React.FC = () => {
             </div>
 
             <div className="w-full">
-              <UploadPDFButton />
+              <UploadPDFButton
+                onUploadSuccess={handleUploadSuccess}
+                onUploadError={handleUploadError}
+              />
               <SyncEmailButton />
             </div>
           </div>
@@ -80,7 +97,6 @@ const MobileView: React.FC = () => {
       <div className="overflow-auto grow py-[40px]">
         {renderActiveTabContent()}
       </div>
-      {/* <MobileViewFooter onTabChange={setActiveTab} /> */}
       <MobileMenu initialActiveTab={activeTab} onTabChange={setActiveTab} />
     </div>
   );

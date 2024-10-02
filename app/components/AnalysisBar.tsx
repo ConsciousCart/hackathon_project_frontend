@@ -2,8 +2,15 @@ import React from "react";
 import { ResponsiveBar } from "@nivo/bar";
 import chartData from "../../subdivided_bar_chart.json";
 import { chartTheme } from "../../chartTheme";
+
+const customColors = {
+  "Indulgence Zone": "#FF6B6B",
+  "Mindful Munchies": "#4ECDC4",
+  "Balanced Boosters": "#E7FC00",
+  "Nutri Powerhouse": "#9B59B6"
+};
+
 const AnalysisBar = () => {
-  // Transform the data into the format expected by ResponsiveBar
   const data = Object.entries(chartData).map(([month, categories]) => ({
     month,
     ...categories,
@@ -25,41 +32,7 @@ const AnalysisBar = () => {
         padding={0.3}
         valueScale={{ type: "linear" }}
         indexScale={{ type: "band", round: true }}
-        colors={{ scheme: "nivo" }}
-        defs={[
-          {
-            id: "dots",
-            type: "patternDots",
-            background: "inherit",
-            color: "#38bcb2",
-            size: 4,
-            padding: 1,
-            stagger: true,
-          },
-          {
-            id: "lines",
-            type: "patternLines",
-            background: "inherit",
-            color: "#eed312",
-            rotation: -45,
-            lineWidth: 6,
-            spacing: 10,
-          },
-        ]}
-        fill={[
-          {
-            match: {
-              id: "Mindful Munchies",
-            },
-            id: "dots",
-          },
-          {
-            match: {
-              id: "Balanced Boosters",
-            },
-            id: "lines",
-          },
-        ]}
+        colors={({ id }) => customColors[id as keyof typeof customColors]}
         borderColor={{
           from: "color",
           modifiers: [["darker", 1.6]],
@@ -70,7 +43,8 @@ const AnalysisBar = () => {
           tickRotation: 0,
           legend: "Month",
           legendPosition: "middle",
-          legendOffset: 32,
+          legendOffset: 30,
+          
         }}
         axisLeft={{
           tickSize: 5,
@@ -78,7 +52,8 @@ const AnalysisBar = () => {
           tickRotation: 0,
           legend: "Count",
           legendPosition: "middle",
-          legendOffset: -40,
+          legendOffset: -30,
+          
         }}
         labelSkipWidth={12}
         labelSkipHeight={12}
