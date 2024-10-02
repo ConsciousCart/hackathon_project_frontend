@@ -36,7 +36,7 @@ const HowHealthyAreYou: React.FC<HowHealthyAreYouProps> = ({ onComplete }) => {
       <div className="h-1/2">
         <div className="flex items-center justify-between">
           <TypographyP className="text-3xl lg:text-xl font-semibold">
-            Health Snapshot
+          Health Preferences
           </TypographyP>
           <UserButton
             signInUrl="/sign-in"
