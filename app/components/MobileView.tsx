@@ -8,12 +8,15 @@ import ListOfInvoices from "./ListOfInvoices";
 import InvoicesAnalysisScreen from "./InvoicesAnalysisScreen";
 import MobileMenu from "./MobileMenu";
 
+interface MobileViewProps {
+  healthProfile: { [key: string]: boolean };
+}
 interface Invoice {
   dateUploaded: string;
   invoice: string; // Filename, could be a PDF or an image
 }
 
-const MobileView: React.FC = () => {
+const MobileView: React.FC<MobileViewProps> = () => {
   const [activeTab, setActiveTab] = useState<
     "Scan" | "Invoices" | "Invoice analysis" | "Analysis" | "Profile"
   >("Scan");
@@ -22,7 +25,7 @@ const MobileView: React.FC = () => {
 
   useEffect(() => {
     // Load invoices from localStorage on component mount
-    const storedInvoices = localStorage.getItem('invoices');
+    const storedInvoices = localStorage.getItem("invoices");
     if (storedInvoices) {
       setInvoices(JSON.parse(storedInvoices));
     }
@@ -30,7 +33,7 @@ const MobileView: React.FC = () => {
 
   useEffect(() => {
     // Save invoices to localStorage whenever it changes
-    localStorage.setItem('invoices', JSON.stringify(invoices));
+    localStorage.setItem("invoices", JSON.stringify(invoices));
   }, [invoices]);
 
   const handleUploadSuccess = (invoiceName: string) => {
