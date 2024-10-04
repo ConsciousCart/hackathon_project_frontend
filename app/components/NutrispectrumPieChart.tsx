@@ -68,7 +68,7 @@ const NutrientDensityAnalysisChart: React.FC<Props> = ({ products }) => {
   return (
     <div className="w-full max-w-[800px] mx-auto rounded-lg shadow-md">
       <h3 className="text-xl text-gray-100 mb-4 font-semibold">
-        Nutrient Density Distribution
+        Nutritional Breakdown
       </h3>
       <div className="h-[450px]">
         <ResponsivePie
