@@ -31,7 +31,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       icon: <PieChart size={20} />,
       label: "Invoice Analysis",
     },
-    { id: "Analysis", icon: <BarChart2 size={20} />, label: "Analysis" },
+    {
+      id: "Analysis",
+      icon: <BarChart2 size={20} />,
+      label: "Monthly analysis",
+    },
     { id: "Profile", icon: <User size={20} />, label: "Profile" },
   ];
 
