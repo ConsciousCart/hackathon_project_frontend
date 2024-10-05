@@ -148,9 +148,7 @@ const InvoiceScanner: React.FC<InvoiceScannerProps> = ({
       <canvas ref={canvasRef} style={{ display: "none" }} />
 
       {uploadSuccess && (
-        <div className="mt-4 text-green-600 font-bold text-center">
-          Image uploaded successfully!
-        </div>
+        <></>
       )}
     </div>
   );
