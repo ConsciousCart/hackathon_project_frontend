@@ -50,12 +50,11 @@ export default function NutritionDataTable() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[50px] text-gray-100">S.No</TableHead>
             <TableHead className="w-[250px] text-gray-100">
               Product Name
             </TableHead>
             <TableHead className="text-gray-100">
-              Cost to Nutrient Ratio
+              Cost : Nutrient Ratio
             </TableHead>
             <TableHead className="text-gray-100">Glycemic Index</TableHead>
             <TableHead className="text-gray-100">Carbon Footprint</TableHead>
@@ -65,7 +64,6 @@ export default function NutritionDataTable() {
         <TableBody>
           {(groceryData.products as NutritionItem[]).map((item, index) => (
             <TableRow key={index}>
-              <TableCell className="text-gray-100">{index + 1}</TableCell>
               <TableCell className="font-medium text-gray-100">
                 {item.product_name || "--"}
               </TableCell>
