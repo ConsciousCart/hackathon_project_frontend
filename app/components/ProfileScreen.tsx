@@ -39,7 +39,6 @@ const ProfileScreen: React.FC = () => {
   appearance={{
     elements: {
       userButtonPopoverCard: "text-black border border-gray-700 centered-popup",
-      // ... other appearance properties
       userButtonPopoverFooter: "hidden"
     }
   }}
