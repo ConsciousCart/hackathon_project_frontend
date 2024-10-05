@@ -21,7 +21,6 @@ export default function Page() {
             signInUrl="/sign-in"
             appearance={{
               elements: {
-                footerAction: "hidden",
                 cardBox: "h-full",
                 card: "h-full flex flex-col",
                 headerTitle: "text-xl lg:text-2xl font-bold mb-4",
