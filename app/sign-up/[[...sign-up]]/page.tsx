@@ -10,7 +10,7 @@ export default function Page() {
             Conscious Cart
           </TypographyH2>
           <TypographyP className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed text-center lg:text-justify mx-auto md:max-w-md">
-            Your AI-powered shopping companion. Scan products to instantly
+            Your AI-powered shopping companion. Scan invoices to instantly
             reveal their health, environmental, and social impacts. Make
             informed choices tailored to your personal values and wellbeing
             goals. Shop smarter, live better.
