@@ -1,6 +1,5 @@
 "use client";
 import { TypographyH2 } from "@/components/ui/Typography/TypographyH2";
-import { TypographyP } from "@/components/ui/Typography/TypographyP";
 import { SignIn } from "@clerk/nextjs";
 export default function Page() {
   return (
@@ -10,12 +9,9 @@ export default function Page() {
           <TypographyH2 className="text-3xl md:text-4xl lg:text-5xl text-center tracking-wide mb-4 lg:mb-0">
             Conscious Cart
           </TypographyH2>
-          <TypographyP className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed text-center lg:text-justify mx-auto md:max-w-md">
-            Your AI-powered shopping companion. Scan products to instantly
-            reveal their health, environmental, and social impacts. Make
-            informed choices tailored to your personal values and wellbeing
-            goals. Shop smarter, live better.
-          </TypographyP>
+          <>
+          {/* TODO: PLACE A 3D IMAGE OR SOMETHING HERE */}
+          </>
         </div>
         <div className="flex justify-center items-center lg:p-6">
           <SignIn
