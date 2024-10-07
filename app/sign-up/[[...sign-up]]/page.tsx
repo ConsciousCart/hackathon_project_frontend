@@ -11,10 +11,11 @@ export default function Page() {
             Conscious Cart
           </TypographyH2>
           <TypographyP className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed text-center lg:text-justify mx-auto md:max-w-md">
-            Your AI-powered shopping companion. Scan invoices to instantly
-            reveal their health, environmental, and social impacts. Make
-            informed choices tailored to your personal values and wellbeing
-            goals. Shop smarter, live better.
+            Your AI Grocery Copilot: Effortlessly Transform Invoices into Smart
+            Insights for Healthier Choices! Use Gmail to sync your grocery
+            invoices from Zepto, Instamart, etc., seamlessly to the site, or
+            upload grocery invoices and get feedback and suggestions on your
+            purchases.
           </TypographyP>
         </div>
         <div className="flex flex-col justify-center items-center lg:p-6">
@@ -26,12 +27,15 @@ export default function Page() {
                 card: "bg-[rgb(30,30,30)]",
                 headerTitle: "text-2xl font-bold mb-4 text-white",
                 headerSubtitle: "mb-4 text-gray-400",
-                socialButtonsBlockButton: "mb-2 border-gray-700 text-white hover:bg-gray-800 transition-colors",
+                socialButtonsBlockButton:
+                  "mb-2 border-gray-700 text-white hover:bg-gray-800 transition-colors",
                 dividerLine: "my-4 border-gray-700",
                 dividerText: "text-gray-400",
                 formFieldLabel: "text-gray-300",
-                formFieldInput: "mb-2 bg-gray-800 border-gray-700 text-white focus:border-blue-500 focus:ring-blue-500",
-                formButtonPrimary: "mt-4 bg-[#E7FC00] hover:bg-[#d1e300] text-black transition-colors duration-300 ease-in-out",
+                formFieldInput:
+                  "mb-2 bg-gray-800 border-gray-700 text-white focus:border-blue-500 focus:ring-blue-500",
+                formButtonPrimary:
+                  "mt-4 bg-[#E7FC00] hover:bg-[#d1e300] text-black transition-colors duration-300 ease-in-out",
                 formFieldRow: "mb-2",
                 footerActionLink: "text-blue-400 hover:text-blue-300",
                 identityPreviewText: "text-gray-300",
@@ -42,7 +46,12 @@ export default function Page() {
           />
           {/* Custom footer */}
           <div className="mt-4 text-center text-gray-400">
-            <p>Already have an account? <a href="/sign-in" className="text-blue-400 hover:text-blue-300">Sign in</a></p>
+            <p>
+              Already have an account?{" "}
+              <a href="/sign-in" className="text-blue-400 hover:text-blue-300">
+                Sign in
+              </a>
+            </p>
             <p className="mt-2">Secured by Clerk</p>
           </div>
         </div>
