@@ -14,7 +14,7 @@ export default function Page() {
           {/* TODO: PLACE A 3D IMAGE OR SOMETHING HERE */}
           </>
         </div>
-        <div className="flex justify-center items-center lg:p-6">
+        <div className="flex flex-col justify-center items-center lg:p-6">
           <SignIn
             signUpUrl="/sign-up"
             appearance={{
@@ -31,15 +31,15 @@ export default function Page() {
                 formButtonPrimary: "mt-4 bg-[#E7FC00] hover:bg-[#d1e300] text-black transition-colors duration-300 ease-in-out",
                 formFieldRow: "mb-2",
                 footerActionLink: "text-blue-400 hover:text-blue-300",
-                footer: "bg-[rgb(30,30,30)] !important",
-                footerActionText: "text-gray-400",
-                card__footer: "bg-[rgb(30,30,30)] !important",
-                alternativeMethodsBlock: "bg-[rgb(30,30,30)] !important",
-                alternativeMethodsBlockButton: "text-blue-400 hover:text-blue-300",
+                footer: "hidden", // Hide Clerk's footer
               },
-              
             }}
           />
+          {/* Custom footer */}
+          <div className="mt-4 text-center text-gray-400">
+            <p>Don&apos;t have an account? <a href="/sign-up" className="text-blue-400 hover:text-blue-300">Sign up</a></p>
+            <p className="mt-2">Secured by Clerk</p>
+          </div>
         </div>
       </div>
     </div>
