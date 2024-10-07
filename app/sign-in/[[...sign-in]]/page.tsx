@@ -11,7 +11,6 @@ export default function Page() {
             Conscious Cart
           </TypographyH2>
           <>
-          {/* TODO: PLACE A 3D IMAGE OR SOMETHING HERE */}
           </>
         </div>
         <div className="flex flex-col justify-center items-center lg:p-6">
